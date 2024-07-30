@@ -3,6 +3,9 @@ import "dotenv/config";
 import {serve} from "@hono/node-server";
 import {cors} from "hono/cors";
 
+//routes
+import { userRouter } from './User and Auath/users/users.router';
+
 
 const app = new Hono();
 
@@ -12,6 +15,8 @@ app.get('/',async(c)=>{
     return c.json({message: 'Welcome to my API'});
 })
 
+//routes
+app.route('/', userRouter)
 
 serve({
     fetch: app.fetch,
