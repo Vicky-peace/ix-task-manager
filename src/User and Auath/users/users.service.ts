@@ -108,3 +108,13 @@ export const loginUser = async (email: string, password: string) => {
     const token = jwt.sign({id: user.user_id, email: user.email, role}, secret!, {expiresIn});
     return {token, user}
 };
+
+//get all users
+export const getUsersService = async (limit?:number): Promise<TIUsers[] | null> => {
+    if(limit){
+        return await db.query.Users.findMany({
+            limit:limit
+        });
+    }
+    return await db.query.Users.findMany();
+}
