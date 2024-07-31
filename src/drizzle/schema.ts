@@ -33,8 +33,8 @@ export const Roles = pgTable('roles', {
 
 // User Roles Table
 export const UserRoles = pgTable('user_roles', {
-    user_id: integer('user_id').notNull().references(() => Users.user_id),
-    role_id: integer('role_id').notNull().references(() => Roles.role_id),
+    user_id: integer('user_id').notNull().references(() => Users.user_id,{onDelete: 'cascade'}),
+    role_id: integer('role_id').notNull().references(() => Roles.role_id, { onDelete: 'cascade' }),
 });
 
 // Projects Table

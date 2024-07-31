@@ -1,5 +1,5 @@
 {
-  "id": "b49d1bd6-d9a8-4ae7-9c32-cfddfae630e7",
+  "id": "36f28ddc-c065-47af-bb45-2a4312254786",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -797,7 +797,7 @@
           "columnsTo": [
             "user_id"
           ],
-          "onDelete": "no action",
+          "onDelete": "cascade",
           "onUpdate": "no action"
         },
         "user_roles_role_id_roles_role_id_fk": {
@@ -810,7 +810,7 @@
           "columnsTo": [
             "role_id"
           ],
-          "onDelete": "no action",
+          "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },

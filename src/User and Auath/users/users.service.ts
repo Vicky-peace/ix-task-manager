@@ -118,3 +118,25 @@ export const getUsersService = async (limit?:number): Promise<TIUsers[] | null> 
     }
     return await db.query.Users.findMany();
 }
+
+//get single user by id
+export const getUserByIdService = async (id: number): Promise<TSUsers | undefined> =>{
+    return await db.query.Users.findFirst({
+        where:eq(Users.user_id, id),
+    });
+}
+
+export const updateUserService  = async (id: number, user: TIUsers): Promise<string> => {
+    if(user.password){
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(user.password, saltRounds);
+        user.password = hashedPassword;
+    }
+ await db.update(Users).set(user).where(eq(Users.user_id, id)).execute();
+    return 'User updated successfully';
+}
+
+export const deleteUserService = async (id: number): Promise<string> => {
+    await db.delete(Users).where(eq(Users.user_id, id)).execute();
+    return 'User deleted successfully';
+}
