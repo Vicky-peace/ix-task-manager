@@ -6,6 +6,7 @@ import {cors} from "hono/cors";
 //routes
 import { userRouter } from './User and Auath/users/users.router';
 import { projectRouter } from './Task Management/projects/project.router';
+import { taskRouter } from './Task Management/tasks/tasks.router';
 
 
 const app = new Hono();
@@ -19,6 +20,7 @@ app.get('/',async(c)=>{
 //routes
 app.route('/', userRouter)
 app.route('/', projectRouter)
+app.route('/', taskRouter)
 
 serve({
     fetch: app.fetch,
