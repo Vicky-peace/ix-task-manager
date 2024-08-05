@@ -34,3 +34,12 @@ export const taskSchema = z.object({
     created_at: z.date().optional(),
     updated_at: z.date().optional(),
 })
+
+export const TeamsSchema = z.object({
+    team_id: z.number().int().optional(),
+    owner_id: z.number().int(),
+    name: z.string().min(3).max(255),
+    description: z.string().min(3).max(255),
+    created_at: z.date().optional(),
+    updated_at: z.date().optional(),
+})

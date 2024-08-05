@@ -10,6 +10,7 @@ import { taskRouter } from './Task Management/tasks/tasks.router';
 import { commentsRouter } from './Task Management/task_comments/comments.router';
 import { labelRouter } from './Task Management/task_labels/label.router';
 import { attachmentRouter } from './Task Management/task_attachments/attachment.router';
+import { teamsRouter } from './Collaboration/teams/teams.routers';
 
 
 const app = new Hono();
@@ -27,6 +28,7 @@ app.route('/', taskRouter)
 app.route('/', commentsRouter)
 app.route('/', labelRouter)
 app.route('/', attachmentRouter)
+app.route('/', teamsRouter)
 serve({
     fetch: app.fetch,
     port: Number(process.env.PORT)
