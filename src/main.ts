@@ -12,6 +12,7 @@ import { labelRouter } from './Task Management/task_labels/label.router';
 import { attachmentRouter } from './Task Management/task_attachments/attachment.router';
 import { teamsRouter } from './Collaboration/teams/teams.routers';
 import { teamMembersRouter } from './Collaboration/team_members/teamMembers.router';
+import { invitationsRouter } from './Collaboration/invitations/invitations.router';
 
 
 const app = new Hono();
@@ -31,6 +32,7 @@ app.route('/', labelRouter)
 app.route('/', attachmentRouter)
 app.route('/', teamsRouter)
 app.route('/', teamMembersRouter)
+app.route('/', invitationsRouter)
 serve({
     fetch: app.fetch,
     port: Number(process.env.PORT)
